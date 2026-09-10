@@ -5,13 +5,7 @@ const bouton = document.getElementById("resoudre");
 
 if (photo) {
   photo.addEventListener("change", function () {
-    if (photo.files.length > 0) {
-      message.textContent = "Photo ajoutée ✅";
-    }
-  });
-}
-
-if (bouton) {
+    if (photo.files.length > if (bouton) {
   bouton.addEventListener("click", async function () {
     const texte = exercice ? exercice.value.trim() : "";
 
@@ -47,4 +41,4 @@ if (bouton) {
   
     }
   });
-}
+
