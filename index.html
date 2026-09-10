@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DevoirIA</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <div class="logo">△</div>
+  <h1>DevoirIA</h1>
+  <p class="subtitle">Ton assistant pour comprendre tes devoirs.</p>
+
+  <section class="card">
+    <label for="photo" class="upload">
+      <span class="camera">📷</span>
+      <strong>Ajouter une photo</strong>
+      <small>Prends en photo ton exercice</small>
+    </label>
+    <input id="photo" type="file" accept="image/*">
+
+    <textarea id="exercice" placeholder="Ou écris ton exercice ici..."></textarea>
+    <button id="resoudre">Résoudre l'exercice</button>
+    <div id="message"></div>
+  </section>
+
+  <p class="note">V1 : interface prête. La connexion à une vraie IA sera ajoutée ensuite.</p>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
