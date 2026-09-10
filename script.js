@@ -1,4 +1,4 @@
-const photo = document.getElementById("photo");
+alert("SCRIPT OK");const photo = document.getElementById("photo");
 const exercice = document.getElementById("exercice");
 const message = document.getElementById("message");
 const bouton = document.getElementById("resoudre");
