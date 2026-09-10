@@ -2,9 +2,14 @@ export default async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Méthode non autorisée" });
   }
+try {
+  if (!process.env.AI_GATEWAY_API_KEY) {
+    return res.status(500).json({ error: "CLÉ ABSENTE" });
+  }
 
-  try {
-    const { message } = req.body;
+  const { message } = req.body;
+
+  
 
     if (!message) {
       return res.status(400).json({ error: "Message manquant" });
