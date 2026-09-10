@@ -12,16 +12,37 @@ if (photo) {
 }
 
 if (bouton) {
-  bouton.addEventListener("click", function () {
+  bouton.addEventListener("click", async function () {
     const texte = exercice ? exercice.value.trim() : "";
-    const hasPhoto = photo && photo.files.length > 0;
 
-    if (!texte && !hasPhoto) {
-      message.textContent = "Ajoute une photo ou écris ton exercice.";
+    if (!texte) {
+      message.textContent = "Écris ton exercice pour commencer.";
       return;
     }
 
-    message.textContent =
-      "Exercice reçu ✅ La connexion à l'IA sera ajoutée ensuite.";
+    message.textContent = "🤖 DevoirIA réfléchit...";
+
+    try {
+      const response = await fetch("/api/chat", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          message: texte
+        })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Erreur");
+      }
+
+      message.textContent = data.answer;
+    } catch (error) {
+      message.textContent =
+        "❌ Impossible de contacter l'IA pour le moment.";
+    }
   });
 }
