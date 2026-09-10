@@ -40,9 +40,11 @@ if (bouton) {
       }
 
       message.textContent = data.answer;
-    } catch (error) {
-      message.textContent =
-        "❌ Impossible de contacter l'IA pour le moment.";
+    } } catch (error) {
+  message.textContent = "❌ " + error.message;
+}
+      
+  
     }
   });
 }
